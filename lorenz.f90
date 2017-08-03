@@ -31,7 +31,6 @@ print*, "Simulation is complete."
 end program
 
 subroutine rhs(x_in, k_out)
-
 implicit none
 
 integer, parameter :: rprec = kind(1.d0)
