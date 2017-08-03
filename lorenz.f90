@@ -2,8 +2,8 @@ program lorenz
 implicit none
 
 integer, parameter :: rprec = kind(1.d0)
-integer :: i_iter=0, n_iter=1e5 	! iteration counter, total iterations
-real(rprec) :: dt=0.01				! time step-size
+integer :: i = 0, n = 1e5 ! iteration counter, total iterations
+real(rprec) :: dt = 0.01  ! time step size
 real(rprec), dimension(3) :: x, k1=0, k2=0, k3=0, k4=0
 
 ! initialization
@@ -11,9 +11,9 @@ x = (/ 0.0_rprec, 1.0_rprec, 0.0_rprec /) ! initial speeds of 1.0
 
 open(9, file="out.dat")
 
-do i_iter=1, n_iter    ! timestepping
+do i = 1, n    ! timestepping
 
-  write(9,*)  dt*(i_iter-1), x
+  write(9,*)  dt*(i-1), x
 
   call rhs(x,                     k1)
   call rhs(x + dt/2.0_rprec*k1,   k2)
